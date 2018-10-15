@@ -32,6 +32,7 @@ import com.smarttersstudio.jewellaryadmin.fragments.EnquiryFragment;
 import com.smarttersstudio.jewellaryadmin.fragments.GalleryFragment;
 import com.smarttersstudio.jewellaryadmin.fragments.HomeFragment;
 import com.smarttersstudio.jewellaryadmin.fragments.ItemFragment;
+import com.smarttersstudio.jewellaryadmin.fragments.SearchFragment;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.ByteArrayOutputStream;
@@ -108,6 +109,8 @@ public class HomeActivity extends AppCompatActivity
             tag="gallery";
         } else if (id == R.id.nav_enquiry) {
             f=new EnquiryFragment();
+        }else if(id==R.id.nav_search){
+            f=new SearchFragment();
         }else{
             f=new ItemFragment();
         }

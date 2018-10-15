@@ -17,9 +17,13 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Items" />
         <item
-            android:id="@+id/nav_enquiry"
+        android:id="@+id/nav_enquiry"
+        android:icon="@drawable/ic_menu_manage"
+        android:title="Enquiries" />
+        <item
+            android:id="@+id/nav_search"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Enquiries" />
+            android:title="Search" />
     </group>
 
 
