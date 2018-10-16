@@ -1,6 +1,7 @@
 package com.smarttersstudio.jewellaryadmin.fragments;
 
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -40,12 +42,29 @@ public class EnquiryFragment extends Fragment {
                 .build();
         FirebaseRecyclerAdapter<Enquiry,EnquiryViewHolder> f=new FirebaseRecyclerAdapter<Enquiry, EnquiryViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull EnquiryViewHolder holder, int position, @NonNull Enquiry model) {
+            protected void onBindViewHolder(@NonNull final EnquiryViewHolder holder, int position, @NonNull Enquiry model) {
                 holder.setCall(model.getNumber(),a);
                 holder.setDesc(model.getDesc());
                 holder.setItem(model.getGos(),model.getType(),model.getId(),a);
                 holder.setName(model.getName());
                 holder.close(getRef(position));
+                holder.mainCard.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(holder.cnt == 0) {
+                            holder.hiddenPart.setVisibility(View.VISIBLE);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                holder.mainCard.setCardElevation(20);
+                            }
+                            holder.cnt = 1;
+                        }
+                        else{
+                            holder.hiddenPart.setVisibility(View.GONE);
+                            holder.mainCard.setCardElevation(0);
+                            holder.cnt = 0;
+                        }
+                    }
+                });
             }
 
             @Override

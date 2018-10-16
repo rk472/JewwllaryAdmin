@@ -6,11 +6,13 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,9 @@ public class EnquiryViewHolder extends RecyclerView.ViewHolder {
     private Button closeButton;
     private ImageButton callButton;
     private ImageView img;
+    public CardView mainCard;
+    public LinearLayout hiddenPart;
+    public int cnt=0;
     private View v;
 
     public EnquiryViewHolder(View itemView) {
@@ -38,6 +43,8 @@ public class EnquiryViewHolder extends RecyclerView.ViewHolder {
         callButton = v.findViewById(R.id.call_button);
         descText = v.findViewById(R.id.enquiry_item_desc);
         itemNameText = v.findViewById(R.id.enquiry_item_name);
+        hiddenPart = v.findViewById(R.id.hidden_desc);
+        mainCard = v.findViewById(R.id.main_card);
         img = v.findViewById(R.id.enquiry_image);
         closeButton=v.findViewById(R.id.close_enquiry);
     }
@@ -64,7 +71,6 @@ public class EnquiryViewHolder extends RecyclerView.ViewHolder {
         descText.setText(desc);
     }
     public void setItem(String gos, String type, String id, final AppCompatActivity a){
-        //Toast.makeText(a, gos+"", Toast.LENGTH_SHORT).show();
         DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("items").child(gos).child(type).child(id);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
