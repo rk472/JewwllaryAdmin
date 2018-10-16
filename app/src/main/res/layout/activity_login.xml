@@ -7,34 +7,77 @@
     tools:context=".LoginActivity"
     android:gravity="center"
     android:orientation="vertical">
-    <EditText
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Email Address"
-        android:textAlignment="center"
-        android:id="@+id/login_email"
-        android:inputType="textEmailAddress"/>
-    <EditText
+        android:layout_marginBottom="20sp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/autour_one"
+                android:text="Subhadra"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:fontFamily="@font/amita_bold"
+                android:text="Jewellers"
+                android:textColor="@color/colorPrimary"
+                android:textSize="22sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/login_password"
-        android:layout_margin="10dp"
-        android:textAlignment="center"
-        android:hint="Password"
-        android:inputType="textPassword"/>
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Address"
+            android:textAlignment="center"
+            android:id="@+id/login_email"
+            android:inputType="textEmailAddress"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_password"
+            android:textAlignment="center"
+            android:hint="Password"
+            android:inputType="textPassword"/>
+    </android.support.design.widget.TextInputLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:onClick="login"
-        android:text="login"/>
+        android:textColor="#fff"
+        android:textSize="17sp"
+        android:background="@drawable/button_back"
+        android:text="login now"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reset password"
         android:textSize="18sp"
+        android:layout_margin="10sp"
         android:textColor="#000"
-        android:textStyle="bold"
         android:onClick="reset"/>
 </LinearLayout>

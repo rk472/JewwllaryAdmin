@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,7 @@ public class GalleryFragment extends Fragment {
         list=v.findViewById(R.id.gallery_list);
         addPhoto=v.findViewById(R.id.add_photo);
         list.setHasFixedSize(true);
-        list.setLayoutManager(new GridLayoutManager(a,2,LinearLayoutManager.VERTICAL,false));
+        list.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         galleryRef=FirebaseDatabase.getInstance().getReference().child("gallery");
         FirebaseRecyclerOptions<Gallery> options=new FirebaseRecyclerOptions.Builder<Gallery>()
                                                         .setQuery(galleryRef,Gallery.class)

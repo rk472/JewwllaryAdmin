@@ -19,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,7 +44,10 @@ import id.zelory.compressor.Compressor;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
     private FirebaseAuth mAuth;
+    public NavigationView navigationView;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +62,9 @@ public class HomeActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView =  findViewById(R.id.nav_view);
+        navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
         loadFragment(new HomeFragment(),"home");
     }
 
@@ -123,6 +128,30 @@ public class HomeActivity extends AppCompatActivity
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.container,f,tag);
         ft.commit();
+    }
+    public void loadGallery(View v){
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container,new GalleryFragment(),"gallery");
+        ft.commit();
+        navigationView.setCheckedItem(R.id.nav_gallery);
+    }
+    public void loadItems(View v){
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container,new ItemFragment(),"other");
+        ft.commit();
+        navigationView.setCheckedItem(R.id.nav_items);
+    }
+    public void loadSearch(View v){
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container,new SearchFragment(),"other");
+        ft.commit();
+        navigationView.setCheckedItem(R.id.nav_search);
+    }
+    public void loadEnquiry(View v){
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container,new EnquiryFragment(),"other");
+        ft.commit();
+        navigationView.setCheckedItem(R.id.nav_enquiry);
     }
 
     @Override

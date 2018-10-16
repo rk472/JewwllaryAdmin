@@ -11,6 +11,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:weightSum="10">
                 <TextView
                     android:layout_width="0dp"
@@ -18,37 +19,69 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/enquiry_name"
                     android:text="Name"
-                    android:textSize="18sp"/>
-                <Button
+                    android:layout_marginLeft="10sp"
+                    android:textSize="20sp"/>
+                <LinearLayout
                     android:layout_width="0dp"
+                    android:gravity="center"
                     android:layout_weight="2"
-                    android:text="call"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/call_button"/>
+                    android:layout_height="wrap_content">
+                    <ImageButton
+                        android:layout_width="50sp"
+                        android:src="@drawable/ic_call_black_24dp"
+                        android:layout_margin="5sp"
+                        android:background="@drawable/image_button_back"
+                        android:layout_height="50sp"
+                        android:id="@+id/call_button"/>
+                </LinearLayout>
             </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/hidden_desc"
             android:orientation="vertical">
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/ic_menu_gallery"
-                android:id="@+id/enquiry_image"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/enquiry_item_name"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/enquiry_item_desc"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:padding="10sp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_menu_gallery"
+                    android:id="@+id/enquiry_image"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginTop="10sp"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="10sp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="19sp"
+                        android:id="@+id/enquiry_item_name"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:textSize="19sp"
+                        android:id="@+id/enquiry_item_desc"/>
+                </LinearLayout>
+            </LinearLayout>
+
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
                 android:id="@+id/close_enquiry"
-                android:text="settle"/>
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:layout_marginTop="10sp"
+                android:background="@color/colorAccent"
+                android:text="settle now"/>
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>
