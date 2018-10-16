@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void reset(View view) {
-        mAuth.sendPasswordResetEmail("").addOnSuccessListener(new OnSuccessListener<Void>() {
+        mAuth.sendPasswordResetEmail("mahimranjansaoo@gmail.com").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(LoginActivity.this, "A password reset email has been sent to your email", Toast.LENGTH_SHORT).show();
