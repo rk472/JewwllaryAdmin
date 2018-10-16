@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -63,6 +64,7 @@ public class EnquiryViewHolder extends RecyclerView.ViewHolder {
         descText.setText(desc);
     }
     public void setItem(String gos, String type, String id, final AppCompatActivity a){
+        //Toast.makeText(a, gos+"", Toast.LENGTH_SHORT).show();
         DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("items").child(gos).child(type).child(id);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
